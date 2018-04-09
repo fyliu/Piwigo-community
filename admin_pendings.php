@@ -163,6 +163,8 @@ SELECT
     height,
     rotation,
     representative_ext,
+    i.author AS author,
+    i.comment AS description,
 
     '.$conf['user_fields']['username'].' AS username
 
@@ -256,6 +258,8 @@ foreach ($rows as $row)
       'FILE' => $row['file'],
       'DATE_CREATION' => empty($row['date_creation']) ? l10n('N/A') : format_date($row['date_creation']),
       'ALBUM' => $album,
+      'AUTHOR' => $row['author'],
+      'DESCRIPTION' => $row['description'],
       )
     );
 }
