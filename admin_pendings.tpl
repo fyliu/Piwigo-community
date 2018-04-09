@@ -90,6 +90,14 @@ jQuery(document).ready(function(){
         <td>{$photo.NAME} ({'File'|@translate} {$photo.FILE})</td>
       </tr>
       <tr>
+        <th>{'Author'|@translate}</th>
+        <td>{$photo.AUTHOR}</td>
+      </tr>
+      <tr>
+        <th>{'Description'|@translate}</th>
+        <td>{$photo.DESCRIPTION}</td>
+      </tr>
+      <tr>
         <th>{'Created on'|@translate}</th>
         <td>{$photo.DATE_CREATION}</td>
       </tr>
