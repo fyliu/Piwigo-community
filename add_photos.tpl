@@ -572,7 +572,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
       </p>
 
       <p>
-        {'Author'|@translate}<br>
+        {'Author'|@translate} - Email Address<br>
         <input type="text" class="large" name="author" value="">
       </p>
 
