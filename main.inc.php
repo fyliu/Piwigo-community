@@ -768,6 +768,20 @@ SELECT
       false
       );
 
+    $content = get_l10n_args('Hi administrators,', '').
+      get_l10n_args('', '').
+      get_l10n_args('Album: %s', get_cat_display_name($category_infos['upper_names'], null, false)).
+      get_l10n_args('User: %s', $user['username']).
+      get_l10n_args('Email: %s', $user['email']);
+
+    // send email to user group
+    pwg_mail_group(
+      1,
+      array(
+        'subject' => get_l10n_args('%d photos uploaded by %s', array(count($to_notify), $user['username'])),
+        'content' => $keyargs_content
+      ));
+
     $query = '
 UPDATE '.COMMUNITY_PENDINGS_TABLE.'
   SET notified_on = NOW()
