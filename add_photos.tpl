@@ -157,13 +157,6 @@ jQuery(document).ready(function(){
     jQuery("#uploadWarnings").show();
   });
 
-  jQuery("#showPhotoProperties").click(function() {
-    jQuery(this).parent(".showFieldset").hide();
-    jQuery("#photoProperties").show();
-    jQuery("input[name=set_photo_properties]").prop('checked', true);
-    return false;
-  });
-
 Piecon.setOptions({
   color: '#ff7700',
   background: '#bbb',
@@ -323,8 +316,6 @@ var limit_storage = {$limit_storage};
         //console.log('[UploadComplete]');
         
         Piecon.reset();
-
-        jQuery(".selectAlbum, .selectFiles, #photoProperties, .showFieldset").hide();
 
         jQuery(".infos").append('<ul><li>'+sprintf(photosUploaded_label, uploadedPhotos.length, uploadCategory.label)+'</li></ul>');
 
@@ -570,9 +561,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
       </div>
     </fieldset>
 
-    <p class="showFieldset"><a id="showPhotoProperties" href="#">{'Set Photo Properties'|@translate}</a></p>
-
-    <fieldset id="photoProperties" style="display:none">
+    <fieldset id="photoProperties">
       <legend>{'Photo Properties'|@translate}</legend>
 
       <input type="checkbox" name="set_photo_properties" style="display:none">
