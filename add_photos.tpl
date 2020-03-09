@@ -287,7 +287,7 @@ var limit_storage = {$limit_storage};
           data: {
             single_value_mode: "replace",
             image_id: data.result.image_id,
-            author: jQuery("input[name=author]").val(),
+            author: jQuery("input[name=author]").val() + " " + jQuery("input[name=email]").val(),
             name: jQuery("input[name=name]").val(),
             comment: jQuery("textarea[name=description]").val(),
           },
@@ -570,7 +570,12 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
       </p>
 
       <p>
-        {'Author'|@translate} - Email Address<br>
+        Email Address<br>
+        <input type="text" class="large" name="email" value="">
+      </p>
+
+      <p>
+        {'Author'|@translate}<br>
         <input type="text" class="large" name="author" value="">
       </p>
 
