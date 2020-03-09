@@ -34,8 +34,13 @@ jQuery(document).ready(function(){
     var nbFiles = 0;
     nbFiles = jQuery(".uploadifyQueueItem").size();
 
-    if (nbFiles == 0) {
-      jQuery("#formErrors #noPhoto").show();
+    //if (nbFiles == 0) {
+    //  jQuery("#formErrors #noPhoto").show();
+    //  nbErrors++;
+    //}
+
+    if (jQuery("input[name=email]").val().length === 0) {
+      jQuery("#formErrors #noEmail").show();
       nbErrors++;
     }
 
@@ -211,6 +216,9 @@ var limit_storage = {$limit_storage};
         
         jQuery('#startUpload').on('click', function(e) {
             e.preventDefault();
+            if (!checkUploadStart()) {
+              return false;
+            }
             up.start();
           });
         
@@ -287,7 +295,7 @@ var limit_storage = {$limit_storage};
           data: {
             single_value_mode: "replace",
             image_id: data.result.image_id,
-            author: jQuery("input[name=author]").val() + " " + jQuery("input[name=email]").val(),
+            author: jQuery("input[name=author]").val() + " &lt;" + jQuery("input[name=email]").val() + "&gt;",
             name: jQuery("input[name=name]").val(),
             comment: jQuery("textarea[name=description]").val(),
           },
@@ -497,6 +505,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
   <ul>
     <li id="noAlbum">{'Select an album'|@translate}</li>
     <li id="noPhoto">{'Select at least one photo'|@translate}</li>
+    <li id="noEmail">Email is required</li>
   </ul>
   <div class="hideButton" style="text-align:center"><a href="#" id="hideErrors">{'Hide'|@translate}</a></div>
 </div>
