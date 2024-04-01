@@ -41,6 +41,11 @@ jQuery(document).ready(function(){
     //  nbErrors++;
     //}
 
+    if (jQuery("input[name=author]").val().length === 0) {
+      jQuery("#formErrors #noAuthor").show();
+      nbErrors++;
+    }
+
     if (jQuery("input[name=email]").val().length === 0) {
       jQuery("#formErrors #noEmail").show();
       nbErrors++;
@@ -522,6 +527,7 @@ p#uploadModeInfos {text-align:left;margin-top:1em;font-size:90%;color:#999;}
     <li id="noAlbum">{'Select an album'|@translate}</li>
     <li id="noPhoto">{'Select at least one photo'|@translate}</li>
     <li id="noEmail">Email is required</li>
+    <li id="noAuthor">Author is required</li>
   </ul>
   <div class="hideButton" style="text-align:center"><a href="#" id="hideErrors">{'Hide'|@translate}</a></div>
 </div>
